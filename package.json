@@ -1,0 +1,26 @@
+{
+  "name": "webpack_sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "~2.6.4",
+    "react": "~0.12.2",
+    "reactable": "~0.9.3",
+    "react-router": "~0.11.6",
+    "react-select": "~0.2.14"
+  },
+  "devDependencies": {
+    "6to5-jest": "^1.0.0",
+    "6to5-loader": "^2.0.0",
+    "gulp": "^3.8.10",
+    "gulp-webpack": "^1.1.2",
+    "harmonize": "^1.33.7",
+    "jest-cli": "^0.2.1",
+    "rimraf": "^2.2.8",
+    "gulp-webserver": "~0.9.0",
+    "easymock": "~0.2.9"
+  }
+}
