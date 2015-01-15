@@ -1,5 +1,6 @@
 var gulp = require('gulp');
-var webpack = require('gulp-webpack');
+var gulpWebpack = require('gulp-webpack');
+var webpack = require('webpack');
 require("harmonize")();
 
 gulp.task('cleanBuild', function (cb) {
@@ -12,13 +13,40 @@ gulp.task('copyIndex', ['cleanBuild'], function () {
   .pipe(gulp.dest('./build/'));
 });
 
+gulp.task('webpackInc', function (cb) {
+    var config = {
+        entry: './src/main.js',
+        output: {
+            filename: './build/bundle.js'
+        },
+        devtool: 'inline-source-map',
+        module: {
+            loaders: [
+        { test: /\.js$/, loader: '6to5-loader' }
+        ]
+        },
+        resolve: {
+            extensions: ['', '.js']
+        },
+        watch: true,
+        plugins: [
+            new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+            })
+        ]
+    };
+
+    return gulp.src('')
+    .pipe(gulpWebpack(config))
+    .pipe(gulp.dest(''));
+});
+
 gulp.task('webpack', ['copyIndex'], function (cb) {
   var config = {
     entry: './src/main.js',
     output: {
       filename: './build/bundle.js'
     },
-    devtool: 'inline-source-map',
     module: {
       loaders: [
     { test: /\.js$/, loader: '6to5-loader' }
@@ -30,7 +58,7 @@ gulp.task('webpack', ['copyIndex'], function (cb) {
   };
 
   return gulp.src('')
-  .pipe(webpack(config))
+  .pipe(gulpWebpack(config))
   .pipe(gulp.dest(''));
 });
 
@@ -77,8 +105,8 @@ gulp.task('devServer', ['easymock'], function() {
     }));
 });
 
-gulp.task('watch', function () {
-    gulp.watch('./src/**/*.js', ["webpack"]);
+gulp.task('watch', ['webpackInc'], function () {
+    gulp.watch('./src/**/*.js', ["webpackInc"]);
 });
 
 gulp.task("develop", ["devServer", "watch"]);
