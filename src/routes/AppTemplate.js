@@ -11,7 +11,7 @@ export default React.createClass({
         return (
             <div className='container'>
 
-            <header className="navbar navbar-default">
+            <header className="navbar navbar-inverse">
             <a className="navbar-brand" href="#">React-Sample</a>
             <ul className="nav navbar-nav">
             <li className="dropdown">

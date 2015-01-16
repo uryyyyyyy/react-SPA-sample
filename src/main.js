@@ -2,15 +2,15 @@
 'use strict';
 import React  from 'react';
 import Router  from 'react-router';
-import PromiseButton  from './PromiseButton';
-import NotFoundPage  from './pages/NotFoundPage';
-import AppTemplate  from './pages/AppTemplate';
+import ComponentsTemplate  from './routes/ComponentsTemplate';
+import NotFoundPage  from './routes/NotFoundPage';
+import AppTemplate  from './routes/AppTemplate';
 
 var routes = (
     <Router.Route name='app' path='/' handler={AppTemplate}>
     <Router.Route name='components/'
     path='components/:component'
-    handler={PromiseButton} />
+    handler={ComponentsTemplate} />
     <Router.NotFoundRoute handler={NotFoundPage}/>
     </Router.Route>
 );
