@@ -16,16 +16,15 @@
   "devDependencies": {
     "6to5-jest": "^1.0.0",
     "6to5-loader": "^2.0.0",
+    "easymock": "~0.2.9",
     "gulp": "^3.8.10",
+    "gulp-react": "^2.0.0",
     "gulp-webpack": "^1.1.2",
+    "gulp-webserver": "~0.9.0",
     "harmonize": "^1.33.7",
     "jest-cli": "^0.2.1",
     "rimraf": "^2.2.8",
-    "gulp-webserver": "~0.9.0",
-    "easymock": "~0.2.9",
     "webpack": "~1.4.15",
-    "react-bootstrap": "~0.13.2",
-    "style-loader": "~0.8.3",
-    "css-loader": "~0.9.1"
+    "react-bootstrap": "~0.13.2"
   }
 }

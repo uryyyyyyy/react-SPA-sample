@@ -1,0 +1,13 @@
+#portamento_container {
+  float:right;
+  position:relative;
+}
+
+#portamento_container  {
+  float:none;
+  position:absolute;
+}
+
+#portamento_container .fixed {
+  position:fixed;
+}

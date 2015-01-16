@@ -41,7 +41,12 @@ gulp.task('webpackInc', function (cb) {
     .pipe(gulp.dest(''));
 });
 
-gulp.task('webpack', ['copyIndex'], function (cb) {
+gulp.task('copyBower', ['copyIndex'], function () {
+  return gulp.src('./src/bower_components/**')
+  .pipe(gulp.dest('./build/bower_components/'));
+});
+
+gulp.task('webpack', ['copyBower'], function (cb) {
   var config = {
     entry: './src/main.js',
     output: {
@@ -106,8 +111,8 @@ gulp.task('devServer', ['easymock'], function() {
 });
 
 gulp.task('watch', ['webpackInc'], function () {
-    gulp.watch('./src/**/*.js', ["webpackInc"]);
+    gulp.watch(['./src/**/*.js', './src/index.html'], ["webpackInc"]);
 });
 
-gulp.task("develop", ["devServer", "watch"]);
+gulp.task("develop", ["devServer", "watch", "copyBower"]);
 gulp.task("build", ["webpack", "jest"]);

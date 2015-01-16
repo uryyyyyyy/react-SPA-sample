@@ -9,20 +9,28 @@ import BS   from 'react-bootstrap';
 export default React.createClass({
     render: function () {
         return (
-            <BS.Jumbotron>
-            <BS.Navbar>
-            <BS.Nav>
-            <BS.NavItem eventKey={1} href="#">Link</BS.NavItem>
-            <BS.NavItem eventKey={2} href="#">Link</BS.NavItem>
-            <BS.DropdownButton eventKey={3} title="Dropdown">
-            <BS.MenuItem eventKey="1">Action</BS.MenuItem>
-            <BS.MenuItem eventKey="2">Another action</BS.MenuItem>
-            <BS.MenuItem eventKey="3">Something else here</BS.MenuItem>
-            <BS.MenuItem divider />
-            <BS.MenuItem eventKey="4">Separated link</BS.MenuItem>
-            </BS.DropdownButton>
-            </BS.Nav>
-            </BS.Navbar>
+            <div className='container'>
+
+            <header className="navbar navbar-default">
+            <a className="navbar-brand" href="#">React-Sample</a>
+            <ul className="nav navbar-nav">
+            <li className="dropdown">
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">Components<span className="caret"></span></a>
+            <ul className="dropdown-menu" role="menu">
+            <li><a href="#/components/import">import</a></li>
+            <li><a href="#/components/list">show list</a></li>
+            <li className="divider"></li>
+            <li><a href="#">Not Yet</a></li>
+            </ul>
+            </li>
+            <li className="dropdown">
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">SamplePages<span className="caret"></span></a>
+            <ul className="dropdown-menu" role="menu">
+            <li><a href="#/SamplePages/cache">Cache Reload</a></li>
+            </ul>
+            </li>
+            </ul>
+            </header>
 
             <Router.RouteHandler />
 
@@ -30,7 +38,7 @@ export default React.createClass({
             <p children='supported by uryyyyyyy' />
             </footer>
 
-            </BS.Jumbotron>
+            </div>
         );
     }
 });
