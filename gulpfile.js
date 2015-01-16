@@ -12,7 +12,12 @@ gulp.task('copyIndex', ['cleanBuild'], function () {
   .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('webpack', ['copyIndex'], function (cb) {
+gulp.task('copyToBuild', ['copyIndex'], function () {
+  return gulp.src('./src/bower_components/**')
+  .pipe(gulp.dest('./build/bower_components/'));
+});
+
+gulp.task('webpack', ['copyToBuild'], function (cb) {
   var config = {
     entry: './src/main.js',
     output: {
