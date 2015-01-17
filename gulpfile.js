@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var gulpWebpack = require('gulp-webpack');
 var webpack = require('webpack');
 require("harmonize")();
- 
+
 gulp.task('cleanBuild', function (cb) {
   var rimraf = require('rimraf');
   rimraf('./build/', cb);
@@ -100,7 +100,7 @@ gulp.task('devServer', ['easymock'], function() {
     var webserver = require('gulp-webserver');
     gulp.src('./build/')
     .pipe(webserver({
-        livereload: true,
+        livereload: false,
         directoryListing: false,
         open: false,
         proxies: [{

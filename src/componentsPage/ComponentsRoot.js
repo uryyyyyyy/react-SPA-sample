@@ -5,6 +5,8 @@ import Router  from 'react-router';
 import NotFoundPage  from '../utils/myComponents/NotFoundPage';
 import ReactToaster  from './ReactToaster';
 import ReactableC  from './ReactableC';
+import ReactSelect  from './ReactSelect';
+import ReactBootstrap  from './ReactBootstrap';
 
 export default React.createClass({
 	mixins: [ Router.State ],
@@ -18,6 +20,10 @@ export default React.createClass({
 				return (<ReactToaster />);
 			case 'ReactableC':
 				return (<ReactableC />);
+			case 'ReactSelect':
+				return (<ReactSelect />);
+			case 'ReactBootstrap':
+				return (<ReactBootstrap />);
 			default:
 				return (<NotFoundPage />);
 		}
@@ -35,6 +41,12 @@ export default React.createClass({
 						<a href='#/components/ReactableC'
 			className={this.checkActive('ReactableC', selectedComponent)}
 			children='ReactableC' />
+						<a href='#/components/ReactSelect'
+			className={this.checkActive('ReactSelect', selectedComponent)}
+			children='ReactSelect' />
+						<a href='#/components/ReactBootstrap'
+			className={this.checkActive('ReactBootstrap', selectedComponent)}
+			children='ReactBootstrap' />
 					</div>
 				<div className='col-sm-8'
 			children={this.selectComponent(selectedComponent)} />
