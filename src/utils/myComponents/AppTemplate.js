@@ -2,8 +2,7 @@
 'use strict';
 import React  from 'react';
 import Router  from 'react-router';
-import ComponentManu  from '../components/ComponentManu';
-import SamplesManu  from '../components/SamplesManu';
+import ComponentManu  from './ComponentManu';
 import BS   from 'react-bootstrap';
 
 export default React.createClass({

@@ -2,9 +2,9 @@
 'use strict';
 import React  from 'react';
 import Router  from 'react-router';
-import NotFoundPage  from '../routes/NotFoundPage';
-import ReactToaster  from '../components/ReactToaster';
-import ReactableC  from '../components/ReactableC';
+import NotFoundPage  from '../utils/myComponents/NotFoundPage';
+import ReactToaster  from './ReactToaster';
+import ReactableC  from './ReactableC';
 
 export default React.createClass({
 	mixins: [ Router.State ],
