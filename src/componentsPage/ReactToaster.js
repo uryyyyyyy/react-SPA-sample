@@ -8,8 +8,8 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
 export default React.createClass({
 	addAlert: function () {
 		this.refs.container.success(
-			"Welcome welcome welcome!!",
-			"You are now home my friend", {
+			"Hello!!",
+			"World", {
 				timeOut: 30000,
 				extendedTimeOut: 10000
 			});
@@ -20,7 +20,7 @@ export default React.createClass({
 				<ToastContainer ref="container"
 				toastMessageFactory={ToastMessageFactory}
 				className="toast-top-right" />
-				<button onClick={this.addAlert}>GGininder</button>
+				<button onClick={this.addAlert}>Toast!</button>
 				</div>
 			);
 		}

@@ -2,6 +2,8 @@
 'use strict';
 import React  from 'react';
 import Router  from 'react-router';
+import _  from 'lodash';
+import ComponentsManu  from './ComponentsManu';
 import NotFoundPage  from '../utils/myComponents/NotFoundPage';
 import ReactToaster  from './ReactToaster';
 import ReactableC  from './ReactableC';
@@ -10,46 +12,38 @@ import ReactBootstrap  from './ReactBootstrap';
 
 export default React.createClass({
 	mixins: [ Router.State ],
-	checkActive: function(selecter, selectedComponent){
-		return (selecter === selectedComponent)?
-		'list-group-item active' : 'list-group-item';
+	getInitialState: function () {
+		return {
+			components : [
+			{ pattern: 'ReactToastr', vDOM: <ReactToaster />},
+			{ pattern: 'ReactableC', vDOM: <ReactableC />},
+			{ pattern: 'ReactSelect', vDOM: <ReactSelect />},
+			{ pattern: 'ReactBootstrap', vDOM: <ReactBootstrap />}
+			]
+		};
 	},
-	selectComponent: function(component){
-		switch (component){
-			case 'markdown':
-				return (<ReactToaster />);
-			case 'ReactableC':
-				return (<ReactableC />);
-			case 'ReactSelect':
-				return (<ReactSelect />);
-			case 'ReactBootstrap':
-				return (<ReactBootstrap />);
-			default:
-				return (<NotFoundPage />);
+	selectComponent: function(components, selectedStr){
+		var selectedComponent = _.find(components, function(elem){
+			return elem.pattern === selectedStr;
+		});
+		if(selectedComponent){
+			return selectedComponent.vDOM;
+		}else{
+			return <NotFoundPage />;
 		}
 	},
 	render: function () {
-		var selectedComponent = this.getParams().component;
+		var selectedStr = this.getParams().component;
+		var vDOM = this.selectComponent(this.state.components, selectedStr)
 		return (
 			<section className='container'>
 				<p children='Components'/>
 				<div className='row'>
-					<div className='col-sm-4 list-group'>
-						<a href='#/components/markdown'
-			className={this.checkActive('markdown', selectedComponent)}
-			children='markdown' />
-						<a href='#/components/ReactableC'
-			className={this.checkActive('ReactableC', selectedComponent)}
-			children='ReactableC' />
-						<a href='#/components/ReactSelect'
-			className={this.checkActive('ReactSelect', selectedComponent)}
-			children='ReactSelect' />
-						<a href='#/components/ReactBootstrap'
-			className={this.checkActive('ReactBootstrap', selectedComponent)}
-			children='ReactBootstrap' />
-					</div>
-				<div className='col-sm-8'
-			children={this.selectComponent(selectedComponent)} />
+					<ComponentsManu
+					selectedStr={selectedStr}
+					className='col-sm-4 list-group' />
+					<div className='col-sm-8'
+					children={vDOM} />
 				</div>
 			</section>
 		);
