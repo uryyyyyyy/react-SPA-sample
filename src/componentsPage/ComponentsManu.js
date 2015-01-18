@@ -6,10 +6,11 @@ export default React.createClass({
 	getInitialState: function () {
 		return {
 			list : [
-		{ label: 'ReactToastr', url: '#/components/ReactToastr'},
+			{ label: 'ReactToastr', url: '#/components/ReactToastr'},
 			{ label: 'ReactableC', url: '#/components/ReactableC'},
 			{ label: 'ReactSelect', url: '#/components/ReactSelect'},
-			{ label: 'ReactBootstrap', url: '#/components/ReactBootstrap'}
+			{ label: 'ReactBootstrap', url: '#/components/ReactBootstrap'},
+			{ label: 'CustomModalTrigger', url: '#/components/CustomModalTrigger'}
 			]
 		};
 	},

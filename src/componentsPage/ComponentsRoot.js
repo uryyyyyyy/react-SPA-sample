@@ -9,6 +9,8 @@ import ReactToaster  from './ReactToaster';
 import ReactableC  from './ReactableC';
 import ReactSelect  from './ReactSelect';
 import ReactBootstrap  from './ReactBootstrap';
+import CustomModalTrigger  from './CustomModalTrigger';
+
 
 export default React.createClass({
 	mixins: [ Router.State ],
@@ -18,7 +20,8 @@ export default React.createClass({
 			{ pattern: 'ReactToastr', vDOM: <ReactToaster />},
 			{ pattern: 'ReactableC', vDOM: <ReactableC />},
 			{ pattern: 'ReactSelect', vDOM: <ReactSelect />},
-			{ pattern: 'ReactBootstrap', vDOM: <ReactBootstrap />}
+			{ pattern: 'ReactBootstrap', vDOM: <ReactBootstrap />},
+			{ pattern: 'CustomModalTrigger', vDOM: <CustomModalTrigger />}
 			]
 		};
 	},
